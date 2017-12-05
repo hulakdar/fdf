@@ -6,7 +6,7 @@
 /*   By: skamoza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/19 16:47:00 by skamoza           #+#    #+#             */
-/*   Updated: 2017/12/05 16:23:44 by skamoza          ###   ########.fr       */
+/*   Updated: 2017/12/05 18:55:46 by skamoza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ void	fdf_init(t_map *map)
 					WIDTH, HEIGHT, "FdF")))
 		fdf_error("Something went completely wrong", map);
 	mlx_hook(map->window, 2, 5, fdf_key, map);
-	map->camera = vtx(0.0, 0.0, -100.0, 1.0);
+	map->camera = vtx(0.0, 0.0, 20.0, 1.0);
 	map->rot = vtx(-0.6, -0.7, 0.0, 1.0);
 	map->f *= 0.6;
 	map->help = 1;
-	map->flatness = 0.5;
+	map->proj = 0;
+	map->flatness = -0.7;
 	mlx_hook(map->window, 17, 1L << 17, fdf_exit_x, map);
 	mlx_mouse_hook(map->window, (int (*)())fdf_mouse, map);
 }

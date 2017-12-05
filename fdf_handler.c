@@ -6,7 +6,7 @@
 /*   By: skamoza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 18:00:30 by skamoza           #+#    #+#             */
-/*   Updated: 2017/12/05 16:37:35 by skamoza          ###   ########.fr       */
+/*   Updated: 2017/12/05 18:58:02 by skamoza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int		fdf_key(int keycode, t_map *map)
 		map->camera.x += (keycode - 1) << 2;
 	else if (keycode == 1 || keycode == 13)
 		map->camera.y += keycode - 13 ? 1 : -1;
+	else if (keycode == 5 || keycode == 4)
+		map->camera.z += keycode == 5 ? 0.1 : -0.1;
 	else if (keycode == 6)
 		map->rot.z += 0.1;
 	else if (keycode == 7)
@@ -53,8 +55,9 @@ int		fdf_key(int keycode, t_map *map)
 		map->flatness -= keycode == 12 ? 0.1 : -0.1;
 	else if (keycode == 49)
 		map->help = map->help ? 0 : 1;
-	fdf_draw(map);
-	return (0);
+	else if (keycode == 35)
+		map->proj = map->proj ? 0 : 1;
+	return (fdf_draw(map));
 }
 
 int		fdf_exit_x(t_map *parameter)

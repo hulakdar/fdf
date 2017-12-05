@@ -6,7 +6,7 @@
 /*   By: skamoza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:35:24 by skamoza           #+#    #+#             */
-/*   Updated: 2017/12/05 16:22:22 by skamoza          ###   ########.fr       */
+/*   Updated: 2017/12/05 18:58:22 by skamoza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct	s_map
 	void		*mlx;
 	void		*window;
 	char		help;
+	char		proj;
 }				t_map;
 
 void			fdf_error(char *error, t_map *parameter);
@@ -75,7 +76,7 @@ void			fdf_usage(void);
 void			fdf_help(t_map *map);
 int				fdf_linter(int a, int b, double k);
 void			fdf_center(t_map *map);
-void			fdf_draw(t_map *parameter);
+int				fdf_draw(t_map *parameter);
 void			fdf_line(t_pixel *ptr, int x, int y, t_map map);
 int				fdf_key(int keycode, t_map *parameter);
 int				fdf_exit_x(t_map *parameter);

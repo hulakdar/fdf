@@ -6,7 +6,7 @@
 /*   By: skamoza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:36:35 by skamoza           #+#    #+#             */
-/*   Updated: 2017/12/05 18:14:20 by skamoza          ###   ########.fr       */
+/*   Updated: 2017/12/05 18:56:17 by skamoza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	fdf_help(t_map *map)
 				"WASD: Moving camera");
 		mlx_string_put(map->mlx, map->window, 10, 70, 0xffffff,
 				"Q, E: Adjusting flatness");
+		mlx_string_put(map->mlx, map->window, 10, 70, 0xffffff,
+				"P: Change projection");
 		mlx_string_put(map->mlx, map->window, 10, 90, 0xffffff,
 				"Point && click: moves projection");
 		mlx_string_put(map->mlx, map->window, 10, 110, 0xffffff,

@@ -6,7 +6,7 @@
 /*   By: skamoza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 20:05:34 by skamoza           #+#    #+#             */
-/*   Updated: 2017/12/05 17:07:55 by skamoza          ###   ########.fr       */
+/*   Updated: 2017/12/05 18:57:20 by skamoza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,16 @@ t_pixel		fdf_project(t_map map, t_vertex vtx)
 {
 	t_pixel	pix;
 
-	pix.x = vtx.x * map.f;
-	pix.y = vtx.y * map.f;
+	if (map.proj == 1)
+	{
+		pix.x = vtx.x * map.f / vtx.z * 30;
+		pix.y = vtx.y * map.f / vtx.z * 30;
+	}
+	else
+	{
+		pix.x = vtx.x * map.f;
+		pix.y = vtx.y * map.f;
+	}
 	return (pix);
 }
 
@@ -82,7 +90,7 @@ void		fdf_render(t_map map, t_matrix rotations)
 	ft_vectordel(&vect);
 }
 
-void		fdf_draw(t_map *map)
+int			fdf_draw(t_map *map)
 {
 	t_matrix		camera;
 	t_matrix		rotations;
@@ -94,4 +102,5 @@ void		fdf_draw(t_map *map)
 	rotations = mtx_compose(camera, rotations);
 	fdf_render(*map, rotations);
 	fdf_help(map);
+	return (0);
 }
