@@ -1,5 +1,5 @@
-CC=clang
-CFLAGS=-Wall -Wextra -Werror -g
+CC=gcc
+CFLAGS=-Wall -Wextra -Werror
 ZADANIE=main fdf_handler fdf_read fdf_operations fdf_draw fdf_rotations fdf_lines fdf_center
 OBJ=$(addprefix obj/, $(addsuffix .o, $(ZADANIE)))
 NAME=fdf
